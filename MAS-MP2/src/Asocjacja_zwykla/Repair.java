@@ -1,6 +1,11 @@
 package Asocjacja_zwykla;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Repair {
     int repairId;
@@ -16,16 +21,43 @@ public class Repair {
         this.repairStatus = RepairStatus.Waiting_for_product;
     }
 
-    public void setClient(Client client) {
-        if(!(client == null)){
-            this.client = client;
-            client.addRepair(this);
+    public void setClient(Client newClient) {
+        if(client == null)
+            throw new IllegalArgumentException("Client cannot be null");
+        if(this.client != newClient) {
+            this.client = newClient;
+            newClient.addRepair(this);
         }
     }
 
+    private static List<Repair> extent = new ArrayList<>();
+    private static void addRepair(Repair repair) {
+        extent.add(repair);
+    }
 
+    static void showExtent(){
+        System.out.println("Extent of the class: " + Client.class.getName());
 
-    public RepairStatus getRepairStatus() {
-        return repairStatus;
+        for (Repair repair : extent) {
+            System.out.println(repair);
+        }
+    }
+
+    static void writeExtent(ObjectOutputStream stream) throws IOException {
+        stream.writeObject(extent);
+    }
+
+    static void readExtent(ObjectInputStream stream) throws IOException, ClassNotFoundException {
+        extent = (ArrayList<Repair>)stream.readObject();
+    }
+
+    public void setRepairStatus(int repairId, RepairStatus repairStatus) {
+        for(Repair repair : extent){
+            if(repair.repairId == repairId) {
+                repair.repairStatus = repairStatus;
+            } else {
+                throw new IllegalArgumentException("There is no repair registered with given id");
+            }
+        }
     }
 }

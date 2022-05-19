@@ -25,10 +25,12 @@ public class Client extends Person implements Serializable {
         addClient(this);
     }
 
-    public void addRepair(Repair repair) {
-        if(!listOfRepairs.contains(repair)) {
-            listOfRepairs.add(repair);
-            repair.setClient(this);
+    public void addRepair(Repair newRepair) {
+        if(!(newRepair == null) && !listOfRepairs.contains(newRepair)) {
+            listOfRepairs.add(newRepair);
+            newRepair.setClient(this);
+        } else {
+            throw new IllegalArgumentException("Client already has this repair");
         }
     }
 
