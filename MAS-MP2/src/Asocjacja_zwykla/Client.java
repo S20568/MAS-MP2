@@ -14,9 +14,9 @@ public class Client extends Person implements Serializable {
     String email, address;
     int phoneNumber;
     boolean isRegistered;
-    List<Repair> listOfRepairs; //implementacja asocjacji zwykłej pomiędzy Klientem a naprawą, liczność *
+    List<Repair> listOfRepairs = new ArrayList<>(); //implementacja asocjacji zwykłej pomiędzy Klientem a naprawą, liczność *
 
-    public Client(String name, String surname, String email, String address, int phoneNumber, boolean isRegistered, Repair repair) {
+    public Client(String name, String surname, String email, String address, int phoneNumber, boolean isRegistered) {
         super(name, surname);
         this.email = email;
         this.address = address;
@@ -26,11 +26,9 @@ public class Client extends Person implements Serializable {
     }
 
     public void addRepair(Repair newRepair) {
-        if(!(newRepair == null) && !listOfRepairs.contains(newRepair)) {
+        if(!listOfRepairs.contains(newRepair)) {
             listOfRepairs.add(newRepair);
             newRepair.setClient(this);
-        } else {
-            throw new IllegalArgumentException("Client already has this repair");
         }
     }
 
@@ -55,15 +53,17 @@ public class Client extends Person implements Serializable {
         extent = (ArrayList<Client>)stream.readObject();
     }
 
+    public void getListOfRepairs() {
+        System.out.println(name + " " + surname);
+        for(Repair repair : listOfRepairs) {
+            System.out.println(repair);
+        }
+    }
+
     @Override
     public String toString() {
         return "Client{" +
                 "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber= +48 " + phoneNumber +
-                ", isRegistered=" + isRegistered +
-                '}';
+                ", surname='" + surname + '\'';
     }
 }

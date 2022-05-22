@@ -3,11 +3,12 @@ package Asocjacja_zwykla;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Repair {
+public class Repair implements Serializable {
     int repairId;
     LocalDate repairTime;
     Client client; //implementacja asocjacji zwykłej pomiędzy Klientem a naprawą, liczność 1
@@ -19,10 +20,19 @@ public class Repair {
         this.typeOfRepair = typeOfRepair;
         this.repairTime = LocalDate.now();
         this.repairStatus = RepairStatus.Waiting_for_product;
+        addRepair(this);
+    }
+
+    public Repair(int repairId, String typeOfRepair, RepairStatus repairStatus) {
+        this.repairId = repairId;
+        this.typeOfRepair = typeOfRepair;
+        this.repairTime = LocalDate.now();
+        this.repairStatus = repairStatus;
+        addRepair(this);
     }
 
     public void setClient(Client newClient) {
-        if(client == null)
+        if(newClient == null)
             throw new IllegalArgumentException("Client cannot be null");
         if(this.client != newClient) {
             this.client = newClient;
@@ -59,5 +69,16 @@ public class Repair {
                 throw new IllegalArgumentException("There is no repair registered with given id");
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Repair{" +
+                "repairId=" + repairId +
+                ", repairTime=" + repairTime +
+                ", client=" + client +
+                ", typeOfRepair='" + typeOfRepair + '\'' +
+                ", repairStatus=" + repairStatus +
+                '}';
     }
 }
