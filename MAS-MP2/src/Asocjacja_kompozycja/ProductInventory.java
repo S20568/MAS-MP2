@@ -29,7 +29,7 @@ public class ProductInventory {
         }
         System.out.println("Available products:");
         for(Product p : availableProductsList) {
-            System.out.print(p + ", quantity=");
+            System.out.print(p + ", Quantity available: ");
             System.out.print(availableProducts.get(p));
             System.out.println();
         }

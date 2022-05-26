@@ -14,13 +14,16 @@ public class Main {
         System.out.println();
         productInventory.listProductInventory();
 
-        Order order1 = new Order("Card", "DPD");
-        Order order2 = new Order("Cash", "Pick-up point");
+        Order order1 = new Order(1,"Card", "DPD");
+        Order order2 = new Order(2,"Cash", "Pick-up point");
         order1.addOrderedProduct(productInventory.getSpecificProduct(product1));
         order1.addOrderedProduct(productInventory.getSpecificProduct(product4));
         //Listing ordered products in order1
         System.out.println();
         System.out.println("Products ordered in order1");
+        order1.getOrderedProducts();
+        System.out.println();
+        order1.setOrderStatus(1, OrderStatus.Ready_for_shipping);
         order1.getOrderedProducts();
 
         System.out.println();

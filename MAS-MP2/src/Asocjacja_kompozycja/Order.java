@@ -22,8 +22,8 @@ public class Order {
     static int counter = 1;
     List<Order> listOfOrders = new ArrayList<>();
 
-    public Order(String paymentType, String deliveryType) {
-        this.orderNumber = (int) (Math.random() * (maxOrderNumber-minOrderNumber+1)+minOrderNumber);
+    public Order(int orderNumber, String paymentType, String deliveryType) {
+        this.orderNumber = orderNumber;
         this.orderTime = LocalDate.now();
         this.orderStatus = OrderStatus.Accepted;
         this.paymentType = paymentType;
@@ -37,18 +37,6 @@ public class Order {
         orderAmount += orderedProduct.price;
     }
 
-//    public void setOrderAmount() {
-//        int tmpAmount = 0;
-//        for (Map.Entry<Integer,Product> entry : orderedProducts.entrySet())
-//            if(this.orderAmount == 0)
-//                this.orderAmount += entry.getValue().getPrice();
-//            else {
-//                tmpAmount = this.orderAmount;
-//                tmpAmount += entry.getValue().getPrice();
-//                this.orderAmount = tmpAmount;
-//            }
-//    }
-
     public void setOrderStatus(int orderNumber, OrderStatus newOrderStatus) {
         for(Order o : listOfOrders)
             if(o.orderNumber == orderNumber)
@@ -56,6 +44,7 @@ public class Order {
     }
 
     public void getOrderedProducts() {
+        System.out.println(this);
         List<Product> listOfOrderedProducts = new ArrayList<>();
         for(Map.Entry<Integer, Product> entry : orderedProducts.entrySet())
             listOfOrderedProducts.add(entry.getValue());
@@ -63,7 +52,6 @@ public class Order {
         for (Product p : listOfOrderedProducts){
             System.out.println(p);
         }
-        System.out.println(this);
     }
 
 
@@ -71,13 +59,12 @@ public class Order {
     //Przesłonięcie metod - metoda toString()
     @Override
     public String toString() {
-        return "Order: " +
-                "orderNumber=" + orderNumber +
-                ", orderTime=" + orderTime +
-                ", orderAmount=" + orderAmount +
-                ", orderStatus='" + orderStatus + '\'' +
-                ", paymentType='" + paymentType + '\'' +
-                ", deliveryType='" + deliveryType + '\'' +
-                '}';
+        return "Order number: " + orderNumber
+                + "; Order date: " + orderTime
+                + "; Order amount: " + orderAmount
+                + "; Order status: " + orderStatus
+                + "; Payment type: " + paymentType
+                + "; Delivery type: " + deliveryType;
+
     }
 }

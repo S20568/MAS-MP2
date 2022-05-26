@@ -32,12 +32,7 @@ public class ServiceEmployee extends Employee{
 
     @Override
     public String toString() {
-        return "ServiceEmployee{" +
-                "Id pracownika=" + employeeId +
-                ", Imię='" + name + '\'' +
-                ", nazwisko='" + surname + '\'' +
-                ", specjalizacja='" + specialization + '\'' +
-                ", adres='" + address + '\'' +
-                '}';
+        return "[Employee ID: " + employeeId + "; Name: " + name + "; Surname: " + surname
+                + "; Specialization: " + specialization + "; Address: " + address + "]\n";
     }
 }

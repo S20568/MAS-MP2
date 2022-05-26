@@ -10,8 +10,8 @@ public class Main {
         ServiceEmployee serviceEmployee2 = new ServiceEmployee("John", "Doe", "Kaktusowa 12, 98-765 Krakow", 2, "Telefony");
         ServiceEmployee serviceEmployee3 = new ServiceEmployee("Jan", "Kowalski", "Kowalska 1, 11-111 Krakow", 3, "Telefony");
 
-        ServicePoint servicePoint1 = new ServicePoint("Marszalkowska 42, 02-231 Warszawa");
-        ServicePoint servicePoint2 = new ServicePoint("Wawelska 234, 42-311 Krakow");
+        ServicePoint servicePoint1 = new ServicePoint(1, "Marszalkowska 42, 02-231 Warszawa");
+        ServicePoint servicePoint2 = new ServicePoint(2, "Wawelska 234, 42-311 Krakow");
 
         ServiceEmployee_ServicePoint serviceEmployee_servicePoint1 = new ServiceEmployee_ServicePoint(LocalDate.of(2019, 10, 12), LocalDate.of(2022, 1, 10), 5000, serviceEmployee1, servicePoint1);
         ServiceEmployee_ServicePoint serviceEmployee_servicePoint2 = new ServiceEmployee_ServicePoint(LocalDate.of(2020, 4, 30), LocalDate.of(2022, 5, 26), 3500, serviceEmployee2, servicePoint2);

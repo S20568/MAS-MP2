@@ -33,20 +33,9 @@ public class Product implements Serializable {
         return sku;
     }
 
-    public int getPrice() {
-        return price;
-    }
-
     //Przesłonięcie metod - metoda toString()
     @Override
     public String toString() {
-        return "Product: " +
-                "name='" + name + '\'' +
-                ", producer='" + producer + '\'' +
-                ", description='" + description + '\'' +
-                ", sku=" + sku +
-                ", serialNumber=" + serialNumber +
-                ", price=" + price +
-                ", isAvailable=" + isAvailable;
+        return "Product name: " + name + ", price: " + price;
     }
 }

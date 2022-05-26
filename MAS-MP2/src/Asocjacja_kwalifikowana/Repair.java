@@ -49,6 +49,6 @@ public class Repair {
 
     @Override
     public String toString() {
-        return getRepairId() + ": " +getTypeOfRepair() + ", " + getRepairTime() + ", " + getRepairStatus();
+        return "Repair ID " + getRepairId() + ": " + getTypeOfRepair() + ", " + getRepairTime() + ", " + getRepairStatus();
     }
 }

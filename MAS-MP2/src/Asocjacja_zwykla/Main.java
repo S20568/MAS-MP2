@@ -15,7 +15,5 @@ public class Main {
 
         client1.getListOfRepairs();
         client2.getListOfRepairs();
-
-
     }
 }

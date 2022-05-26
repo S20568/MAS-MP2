@@ -73,12 +73,6 @@ public class Repair implements Serializable {
 
     @Override
     public String toString() {
-        return "Repair{" +
-                "repairId=" + repairId +
-                ", repairTime=" + repairTime +
-                ", client=" + client +
-                ", typeOfRepair='" + typeOfRepair + '\'' +
-                ", repairStatus=" + repairStatus +
-                '}';
+        return "Repair ID: " + repairId + "; Repair date: " + repairTime + "; Repair type: " + typeOfRepair + "; Repair status: " + repairStatus;
     }
 }

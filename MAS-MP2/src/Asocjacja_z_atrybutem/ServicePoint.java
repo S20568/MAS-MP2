@@ -5,10 +5,12 @@ import java.util.List;
 
 public class ServicePoint {
 
+    int servicePointId;
     String address;
     List<ServiceEmployee_ServicePoint> employee_servicePointList = new ArrayList<>();
 
-    public ServicePoint(String address) {
+    public ServicePoint(int servicePointId, String address) {
+        this.servicePointId = servicePointId;
         this.address = address;
     }
 
@@ -31,8 +33,6 @@ public class ServicePoint {
 
     @Override
     public String toString() {
-        return "Punkt serwisowy{" +
-                "Adres='" + address + '\'' +
-                '}';
+        return "[Service point ID: " + servicePointId + "; address: " + address + "]";
     }
 }

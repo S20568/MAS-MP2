@@ -62,8 +62,6 @@ public class Client extends Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'';
+        return "Name: " + name + " " + surname;
     }
 }

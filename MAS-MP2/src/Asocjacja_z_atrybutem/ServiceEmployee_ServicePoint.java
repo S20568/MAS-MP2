@@ -50,12 +50,10 @@ public class ServiceEmployee_ServicePoint {
 
     @Override
     public String toString() {
-        return "ServiceEmployee_ServicePoint{" +
-                "serviceEmployee=" + serviceEmployee +
-                ", servicePoint=" + servicePoint +
-                ", worksFrom=" + worksFrom +
-                ", worksTo=" + worksTo +
-                ", salary=" + salary +
-                '}';
+        return "Service employee: \n"+ serviceEmployee +
+                "works in: " + servicePoint +
+                ", from: " + worksFrom +
+                ", to: " + worksTo +
+                ", with " + salary + " salary]";
     }
 }
