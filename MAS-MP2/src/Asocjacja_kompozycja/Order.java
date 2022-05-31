@@ -54,9 +54,6 @@ public class Order {
         }
     }
 
-
-
-    //Przesłonięcie metod - metoda toString()
     @Override
     public String toString() {
         return "Order number: " + orderNumber

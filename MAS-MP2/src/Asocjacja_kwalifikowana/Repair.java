@@ -27,8 +27,10 @@ public class Repair {
     public void setServiceEmployee(ServiceEmployee newServiceEmployee) {
         if (newServiceEmployee == null)
             throw new IllegalArgumentException("Service employee cannot be null");
-        this.serviceEmployee = newServiceEmployee;
-        newServiceEmployee.addRepairQuali(this);
+        if(this.serviceEmployee != newServiceEmployee) {
+            this.serviceEmployee = newServiceEmployee;
+            newServiceEmployee.addRepairQuali(this);
+        }
     }
 
     public int getRepairId() {

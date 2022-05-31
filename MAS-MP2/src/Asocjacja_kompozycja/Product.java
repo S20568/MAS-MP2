@@ -17,6 +17,7 @@ public class Product implements Serializable {
     int price;
     long serialNumber;
     boolean isAvailable;
+    List<Order> orderList = new ArrayList<>();
 
     public Product(String name, String producer, String description, String sku, long serialNumber, int price, boolean isAvailable, int quantity) {
         this.name = name;
@@ -33,7 +34,6 @@ public class Product implements Serializable {
         return sku;
     }
 
-    //Przesłonięcie metod - metoda toString()
     @Override
     public String toString() {
         return "Product name: " + name + ", price: " + price;

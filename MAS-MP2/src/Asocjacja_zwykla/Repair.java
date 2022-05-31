@@ -1,5 +1,9 @@
 package Asocjacja_zwykla;
 
+/*
+    @author Jakub Slusarski, s20568, 20c
+*/
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -11,7 +15,7 @@ import java.util.List;
 public class Repair implements Serializable {
     int repairId;
     LocalDate repairTime;
-    Client client; //implementacja asocjacji zwykłej pomiędzy Klientem a naprawą, liczność 1
+    Client client;
     String typeOfRepair;
     RepairStatus repairStatus;
 

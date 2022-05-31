@@ -23,6 +23,7 @@ public class Main {
         System.out.println("Products ordered in order1");
         order1.getOrderedProducts();
         System.out.println();
+        System.out.println("Change order status");
         order1.setOrderStatus(1, OrderStatus.Ready_for_shipping);
         order1.getOrderedProducts();
 

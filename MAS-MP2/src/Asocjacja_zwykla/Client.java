@@ -14,7 +14,7 @@ public class Client extends Person implements Serializable {
     String email, address;
     int phoneNumber;
     boolean isRegistered;
-    List<Repair> listOfRepairs = new ArrayList<>(); //implementacja asocjacji zwykłej pomiędzy Klientem a naprawą, liczność *
+    List<Repair> listOfRepairs = new ArrayList<>();
 
     public Client(String name, String surname, String email, String address, int phoneNumber, boolean isRegistered) {
         super(name, surname);
@@ -26,6 +26,8 @@ public class Client extends Person implements Serializable {
     }
 
     public void addRepair(Repair newRepair) {
+        if(newRepair == null)
+            throw new IllegalArgumentException("Repair cannot be null");
         if(!listOfRepairs.contains(newRepair)) {
             listOfRepairs.add(newRepair);
             newRepair.setClient(this);
