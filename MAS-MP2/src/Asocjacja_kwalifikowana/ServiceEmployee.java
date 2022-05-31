@@ -1,42 +1,41 @@
 package Asocjacja_kwalifikowana;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ServiceEmployee extends Employee {
 
     private String specialization;
-    Map<Integer, Repair> repairQuali = new HashMap<>();
+//    Map<Integer, Repair> repairQuali = new HashMap<>();
+    List<Repair> repairList = new ArrayList<>();
 
     public ServiceEmployee(String name, String surname, String address, int employeeId, String specialization) {
         super(name, surname, address, employeeId);
         this.specialization = specialization;
     }
 
-    public void addRepairQuali(Repair newRepair) {
+    public void addRepair(Repair newRepair) {
         if(newRepair == null)
             throw new IllegalArgumentException("Service employee cannot be null");
-        if(!repairQuali.containsKey(newRepair.getRepairId())) {
-            repairQuali.put(newRepair.getRepairId(), newRepair);
-            newRepair.setServiceEmployee(this);
+        if(!repairList.contains(newRepair)) {
+            repairList.add(newRepair);
+            newRepair.addServiceEmployeeQuailif(this);
         }
     }
 
-    public void removeRepairQuali(int repairId) {
-        repairQuali.remove(repairId);
+    public List<Repair> getRepairList() {
+        return repairList;
     }
 
     public String getSpecialization() {
         return specialization;
     }
 
-    public Map<Integer, Repair> getRepairQuali() {
-        return repairQuali;
-    }
-
     @Override
     public String toString() {
-        return "Naprawy pracownika o ID: " + getEmployeeId() + '\n' + getRepairQuali().values();
+        return "Naprawy pracownika o ID: " + getEmployeeId() + '\n' + getRepairList();
     }
 
     @Override

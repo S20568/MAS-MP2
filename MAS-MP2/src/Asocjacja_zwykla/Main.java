@@ -11,8 +11,13 @@ public class Main {
 
         client1.addRepair(repair1);
         client2.addRepair(repair2);
-        client2.addRepair(repair3);
+        client1.addRepair(repair3);
+        System.out.println("=====================Before change==========================");
+        client1.getListOfRepairs();
+        client2.getListOfRepairs();
 
+        repair3.setClient(client2);
+        System.out.println("=====================After change==========================");
         client1.getListOfRepairs();
         client2.getListOfRepairs();
     }

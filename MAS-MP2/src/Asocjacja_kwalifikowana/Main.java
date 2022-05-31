@@ -10,15 +10,19 @@ public class Main {
         Repair repair2 = new Repair(8923, "Wymiana baterii");
         Repair repair3 = new Repair(72, "Czyszczenie telefonu");
 
-        serviceEmployee1.addRepairQuali(repair1);
-        serviceEmployee1.addRepairQuali(repair3);
-        serviceEmployee2.addRepairQuali(repair2);
-        System.out.println(serviceEmployee1);
-        System.out.println(serviceEmployee2);
+        repair1.addServiceEmployeeQuailif(serviceEmployee1);
+        repair2.addServiceEmployeeQuailif(serviceEmployee1);
+        repair3.addServiceEmployeeQuailif(serviceEmployee2);
+        System.out.println(repair1);
+        System.out.println(repair2);
+        System.out.println(repair3);
         System.out.println("==========================");
-        serviceEmployee1.removeRepairQuali(72);
-        serviceEmployee2.addRepairQuali(repair3);
-        System.out.println(serviceEmployee1);
-        System.out.println(serviceEmployee2);
+        repair1.removeRepairQuali(1);
+        repair1.addServiceEmployeeQuailif(serviceEmployee2);
+        System.out.println(repair1);
+        System.out.println(repair2);
+        System.out.println(repair3);
+        System.out.println("==========================");
+        System.out.println(repair3.findServiceEmployeeQuali(2));
     }
 }

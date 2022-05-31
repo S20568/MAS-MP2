@@ -38,10 +38,20 @@ public class Repair implements Serializable {
     public void setClient(Client newClient) {
         if(newClient == null)
             throw new IllegalArgumentException("Client cannot be null");
-        if(this.client != newClient) {
-            this.client = newClient;
-            newClient.addRepair(this);
-        }
+        if(this.client == newClient)
+            return;
+        if(this.client != null)
+            this.client.removeRepair(this);
+        this.client = newClient;
+        newClient.addRepair(this);
+        //        if(this.client != null) {
+//            if (this.client != newClient) {
+//                this.client = newClient;
+//                newClient.addRepair(this);
+//            }
+//        } else {
+//
+//        }
     }
 
     private static List<Repair> extent = new ArrayList<>();

@@ -34,6 +34,10 @@ public class Client extends Person implements Serializable {
         }
     }
 
+    public void removeRepair(Repair repairToRemove) {
+        listOfRepairs.remove(repairToRemove);
+    }
+
     private static List<Client> extent = new ArrayList<>();
     private static void addClient(Client client) {
         extent.add(client);
